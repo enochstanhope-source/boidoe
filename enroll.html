@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fa1.jpg" type="image/jpeg">
+    <title>Enroll Now - Start Your Learning Journey</title>
+    <meta name="description" content="Enroll in FPNO Skills Hub courses - Excellence Through Skills">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/fav.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/enroll.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="scripts/enroll.js" defer></script>
+</head>
+<body>
+    <div class="enrollment-container">
+        <div class="enrollment-form-wrapper">
+            <div class="form-header">
+                <button type="button" class="close-button" onclick="window.location.href='index.html'">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h1>Course Enrollment</h1>
+                <p>Start your journey to excellence</p>
+            </div>
+
+            <form id="enrollmentForm" class="enrollment-form">
+                <div class="input-group">
+                    <div class="form-field">
+                        <label for="firstName">
+                            <i class="fas fa-user"></i> First Name
+                        </label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="lastName">
+                            <i class="fas fa-user"></i> Last Name
+                        </label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i> Phone Number
+                        </label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="selectedCourse">
+                            <i class="fas fa-graduation-cap"></i> Selected Course
+                        </label>
+                        <input type="text" id="selectedCourse" name="course" readonly required>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="send-request">
+                        <i class="fas fa-paper-plane"></i> Send Request
+                    </button>
+                    <button type="button" class="cancel-enrollment" onclick="window.location.href='index.html'">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+
+            <div class="form-footer">
+                <p>
+                    <i class="fas fa-info-circle"></i> 
+                    By submitting this form, you'll be redirected to WhatsApp to complete your enrollment.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

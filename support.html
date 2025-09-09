@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fa1.jpg" type="image/jpeg">
+    <title>24/7 Support - Here to Help You Succeed</title>
+    <meta name="description" content="Contact FPNO Skills Hub Support - Excellence Through Service">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/fav.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/support.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="scripts/support.js" defer></script>
+</head>
+<body>
+    <div class="support-container" style="width:100%;display:flex;justify-content:center;align-items:center;min-height:100vh;">
+        <div class="support-form-wrapper" style="width:100%;max-width:600px;box-sizing:border-box;">
+            <div id="successModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+                <div style="background:#fff;padding:2rem 2.5rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.15);text-align:center;max-width:90vw;">
+                    <div id="tickAnim" style="margin-bottom:1rem;">
+                        <svg width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="28" fill="#eafaf1" stroke="#4CAF50" stroke-width="2"/>
+                            <polyline points="18,32 28,42 42,22" fill="none" stroke="#4CAF50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h2 style="color:#4CAF50;margin-bottom:0.5rem;">Message Sent Successfully!</h2>
+                    <p style="color:#333;font-size:1rem;">You will be contacted via your email address.</p>
+                </div>
+            </div>
+            <div class="form-header">
+                
+                <h1>Support Request</h1>
+                <p>How can we help you today?</p>
+            </div>
+
+            <form id="supportForm" class="support-form">
+                <div class="input-group">
+                    <div class="form-field">
+                        <label for="name">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="message">
+                            <i class="fas fa-comment-dots"></i> Enter Complaints! max 250 words
+                        </label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="send-request">
+                        <i class="fas fa-paper-plane"></i> <span id="sendBtnText">Send Request</span>
+                    </button>
+                    <button type="submit" class="send-request" id="sendBtn" style="display:none;"></button>
+                    </button>
+                    <button type="button" class="cancel-support" onclick="window.location.href='index.html'">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+
+            <div class="form-footer">
+                <p>
+                    <i class="fas fa-info-circle"></i> 
+                    By submitting this form, you'll be able to contact our support team.<br>
+                    <a href="support.html" style="color:#dc3545;text-decoration:none;font-weight:600;">Customer Support</a> | <a href="map.html" style="color:#dc3545;text-decoration:none;font-weight:600;">Store Locations</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

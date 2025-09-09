@@ -1,0 +1,198 @@
+/* Digital Skills Page Styles - based on ourstory.css */
+.story-main {
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+.story-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+.story-text {
+  flex: 1 1 350px;
+  max-width: 600px;
+  margin-right: 2rem;
+}
+.story-img-wrap {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.story-content {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.story-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 1.5rem;
+}
+.story-block-text {
+  flex: 1 1 300px;
+  color: #ebebeb;
+  margin-right: 2rem;
+}
+.story-block-img {
+  flex: 1 1 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+}
+@media (max-width: 900px) {
+  .story-hero, .story-block {
+    flex-direction: column;
+    margin-right: 0;
+  }
+  .story-text, .story-block-text {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Digital Skills Cards Responsive Grid - Replicate index.css product card design */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #06001c, #838282);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.product-card .favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.product-card .favorite:hover {
+  transform: scale(1.1);
+  color: #0056b3;
+}
+.product-info {
+  padding: 1.5rem;
+}
+.course-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(to bottom, #06001c, #741212);
+  color: #00ffa2;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+.product-info h3 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.course-details {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: #acacac;
+  font-size: 0.875rem;
+}
+.course-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.stars {
+  color: #ffc107;
+  font-weight: 600;
+}
+.reviews {
+  color: #a8f3e9;
+  font-size: 0.875rem;
+}
+.price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #eeff00;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.installment {
+  font-size: 0.875rem;
+  color: #fef5f5;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .popular-products {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    margin-top: 10% !important;
+  }
+  .popular-products h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1.2rem;
+    color:#ebebeb; font-weight:400; 
+    text-align: center;
+     letter-spacing:1px;
+       text-shadow:0 6px 8px rgb(255, 255, 255);
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .product-info h3 {
+    font-size: 1.125rem;
+  }
+}

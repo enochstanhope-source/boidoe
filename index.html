@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/fa1.jpg" ty          .services {
+            padding: 2rem 1rem;
+            background: #111111;
+            position: relative;
+            color: #ffffff;
+            margin-top: -2rem;
+            z-index: 5;
+          }
+          .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;g">
+    <title>FEDPONEK Bus Management System</title>
+    <meta
+      name="description"
+      content="Skill Hub - Empowering the Next Generation of Innovators"
+    />
+
+    <!-- Resource hints for critical assets -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyA9-SeBMqujxMleatSd23FM5vlLWdOVUPA",
+        authDomain: "grandpa-523e1.firebaseapp.com",
+        projectId: "grandpa-523e1",
+        storageBucket: "grandpa-523e1.firebasestorage.app",
+        messagingSenderId: "1049062266843",
+        appId: "1:1049062266843:web:6f8b23c5a1f20a7836f9fe"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <link rel="preload" href="images/power.mp4" as="video" type="video/mp4" />
+    <link rel="preload" href="images/shoeee.jpg" as="image" type="image/jpeg" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/fav.ico" />
+
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/newsletter.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
+
+    <!-- Optimized font loading -->
+    <link
+      rel="preload"
+      as="font"
+      href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZ9hiA.woff2"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Font Awesome with optimized loading -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Add fallback for users with JavaScript disabled -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      />
+    </noscript>
+
+    <!-- Module scripts loaded with type="module" for better performance -->
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/cart.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/enrollment.js" defer></script>
+    <script src="scripts/newsletter.js" defer></script>
+    <script src="scripts/modal.js" defer></script>
+
+    <!-- Image lazy loading setup -->
+    <script>
+      if ("loading" in HTMLImageElement.prototype) {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll("img[data-src]").forEach((img) => {
+            img.setAttribute("loading", "lazy");
+            img.src = img.dataset.src;
+          });
+        });
+      } else {
+        const script = document.createElement("script");
+        script.src =
+          "https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js";
+        document.body.appendChild(script);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Loader Start -->
+    <div id="loader-overlay">
+      <div class="loader-spinner"></div>
+    </div>
+    <!-- Loader End -->
+    <!-- Menu will be injected here by menu.js -->
+
+
+
+    <main>
+      <section class="hero">
+        <div class="slider-container">
+          <div class="slider-track">
+            <div class="slide">
+              <img src="images/b1.jpg" alt="Workshop" />
+            </div>
+            <div class="slide">
+              <img src="images/b2.jpg" alt="Digital Skills" />
+            </div>
+            <div class="slide">
+              <img src="images/b3.jpg" alt="Tailoring Skills" />
+            </div>
+            <div class="slide">
+              <img src="images/b4.jpg" alt="Photography" />
+            </div>
+            <div class="slide">
+              <img src="images/b5.jpg" alt="Business Skills" />
+            </div>
+            <div class="slide">
+              <img src="images/b6.jpg" alt="Web Development" />
+            </div>
+            <div class="slide">
+              <img src="images/b7.jpg" alt="Fashion Design" />
+            </div>
+            <div class="slide">
+              <img src="images/b8.jpg" alt="Students" />
+            </div>
+            <div class="slide">
+              <img src="images/b9.jpg" alt="Office Skills" />
+            </div>
+            <div class="slide">
+              <img src="images/b10.jpg" alt="Workshop Training" />
+            </div>
+             <div class="slide">
+              <img src="images/b11.jpg" alt="Office Skills" />
+            </div>
+            <div class="slide">
+              <img src="images/b12.jpg" alt="Workshop Training" />
+            </div>
+            
+          </div>
+        </div>
+        
+  <div class="hero-content">
+          <h1 style="text-shadow: 5px 5px 5px black">
+            FPNO<br />
+            Bus Management System<br />
+            <span>Efficiency in Motion</span>
+          </h1>
+          <p>
+            Welcome to Federal Polytechnic Nekede's integrated transport management platform.<br>
+            Real-time tracking, smart fleet management, and advanced analytics for optimized campus transportation.<br>
+            Experience the future of institutional transit.
+          </p>
+          <button class="cta-button" onclick="location.href='duo.html'">Access Dashboard</button>
+          <style>
+          .newsletter-form input[type="email"]::placeholder {
+            color: #fff;
+            opacity: 1;
+          }
+            .cta-button {
+              background: linear-gradient(90deg, #262626 0%, #ff3c3c 100%);
+              color: #fff;
+              border: none;
+              border-radius: 10px;
+              padding: 1rem 2.5rem;
+              font-size: 1.15rem;
+              font-weight: 600;
+              box-shadow: 0 4px 16px rgba(220,26,26,0.15);
+              cursor: pointer;
+              transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+              letter-spacing: 1px;
+              margin-top: 2rem;
+              margin-bottom: 1rem;
+              outline: none;
+            }
+            .cta-button:hover, .cta-button:focus {
+              background: linear-gradient(90deg, #b80000 0%, #dc1a1a 100%);
+              transform: translateY(-2px) scale(1.04);
+              box-shadow: 0 8px 24px rgba(220,26,26,0.25);
+            }
+          </style>
+        </div>       
+      </section>
+      
+   
+
+  <section class="services">
+        <div class="services-header">
+          <h2>Transit Management Solutions</h2>
+          <div class="header-line"></div>
+        </div>
+       
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-bus"></i>
+            </div>
+            <h3 class="service-title">Fleet Management</h3>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i>Complete bus registration system</li>
+              <li><i class="fas fa-check"></i>Real-time vehicle tracking</li>
+              <li><i class="fas fa-check"></i>Maintenance scheduling</li>
+              <li><i class="fas fa-check"></i>Vehicle condition monitoring</li>
+              <li><i class="fas fa-check"></i>Capacity optimization</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h3 class="service-title">Driver Management</h3>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i>Driver registration & licensing</li>
+              <li><i class="fas fa-check"></i>Shift scheduling system</li>
+              <li><i class="fas fa-check"></i>Performance monitoring</li>
+              <li><i class="fas fa-check"></i>Safety compliance tracking</li>
+              <li><i class="fas fa-check"></i>Training program management</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-route"></i>
+            </div>
+            <h3 class="service-title">Route Operations</h3>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i>Dynamic route planning</li>
+              <li><i class="fas fa-check"></i>Schedule optimization</li>
+              <li><i class="fas fa-check"></i>Real-time tracking</li>
+              <li><i class="fas fa-check"></i>Passenger counting</li>
+              <li><i class="fas fa-check"></i>Route performance analysis</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="service-title">Analytics & Reporting</h3>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i>Comprehensive reporting</li>
+              <li><i class="fas fa-check"></i>Financial tracking</li>
+              <li><i class="fas fa-check"></i>Performance metrics</li>
+              <li><i class="fas fa-check"></i>Maintenance analytics</li>
+              <li><i class="fas fa-check"></i>Custom report generation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+       <style>
+          .hero {
+            height: 80vh;
+          }
+       
+          .services {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, #898484, #000000);
+            position: relative;
+            color: #ffffff;
+          }
+          /* .services::before overlay removed for better gradient visibility */
+          .services-header {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 4rem;
+          }
+          .services h2 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+          }
+          .header-line {
+            width: 100px;
+            height: 3px;
+            background: #dc1a1a;
+            margin: 0 auto;
+          }
+          .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+          }
+          .service-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 7px 10px rgba(199, 199, 199, 0.762);
+
+          }
+          .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #dc1a1a;
+            transition: width 0.3s ease;
+          }
+          .service-card:hover::after {
+            width: 100%;
+          }
+          .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          }
+          .service-icon {
+            margin-bottom: 2rem;
+            position: relative;
+          }
+          .service-icon i {
+            font-size: 2rem;
+            color: #dc1a1a;
+          }
+          .service-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+          }
+          .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .service-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #999;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+          }
+          .service-features li:hover {
+            color: #ffffff;
+          }
+          .service-features i {
+            color: #dc1a1a;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+          }
+         
+        </style>
+        
+          <style>
+            @media (max-width: 480px) {
+                .services-grid {
+                  grid-template-columns: 1fr;
+                  gap: 1rem;
+                  max-width: 95vw;
+                  margin: 0 auto;
+                  justify-items: center;
+                  align-items: center;
+                  display: flex;
+                  flex-direction: column;
+                  min-height: 60vh;
+                  justify-content: center;
+                  padding-bottom: 60px;
+                }
+                .service-card {
+                  padding: 1rem;
+                  font-size: 0.85rem;
+                  max-width: 90vw;
+                  margin: 0.5rem auto;
+                  box-shadow: 0 4px 12px rgba(233, 233, 233, 0.54);
+                  text-align: center;
+                }
+                .service-icon i {
+                  font-size: 1.2rem;
+                }
+                .service-title {
+                  font-size: 1rem;
+                  margin-bottom: 0.7rem;
+                }
+                .service-features li {
+                  font-size: 0.85rem;
+                  margin-bottom: 0.5rem;
+                  justify-content: center;
+                }
+                .services-header h2 {
+                  font-size: 1.2rem !important;
+                }
+              }
+          </style>
+    </main>
+
+    <footer class="footer">
+
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About FPNO Skills Hub</h3>
+          <ul>
+            <li><a href="#" onclick="event.preventDefault(); window.location.href='ourstory.html';">- Our Story</a></li> 
+            <li class="ourteam-mobile-margin"><a href="#" onclick="event.preventDefault(); window.location.href='ourteam.html';">-  Our Team</a></li>
+            <li><a href="#" onclick="event.preventDefault(); window.location.href='press.html';">-  Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Programs</h3>
+          <ul>
+            <li><a href="digital.html"> - Digital & Tech Skills</a></li>
+            <li><a href="business.html">-  Business Skills</a></li>
+            <li><a href="vocational.html">-  Vocational Skills</a></li>
+            <li><a href="soft.html">-  Soft & Employability Skills</a></li>
+
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="support.html"><i class="fas fa-headset"></i> Customer Support</a></li>
+            <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Store Locations</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="newsletter">
+            <h4>Get Updates on New Courses</h4>
+            <form class="newsletter-form" id="newsletterForm">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                pattern="[a-z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$"
+                title="Please enter a valid email address (gmail.com, yahoo.com, outlook.com, or hotmail.com)"
+                required 
+              />
+              <button type="submit" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <span class="sending-text">Sending...</span>
+            </form>
+            <div class="newsletter-message" id="newsletterMessage"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="payment-methods">
+          <picture>
+            <img src="images/visa.jpg" alt="Visa" />
+          </picture>
+          <picture>
+            <img src="images/mastercard.jpg" alt="Mastercard" />
+          </picture>
+          <picture>
+            <img src="images/verve.jpg" alt="Verve" />
+          </picture>
+  <!-- Preload above-the-fold hero images (WebP preferred) -->
+  <link rel="preload" href="images/serious1.webp" as="image" type="image/webp" />
+  <link rel="preload" href="images/seriuu.webp" as="image" type="image/webp" />
+  <link rel="preload" href="images/me7.webp" as="image" type="image/webp" />
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2025 FPNO Skill Acquisition Hub. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#" data-modal="privacyPolicyModal"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+            <a href="#" data-modal="termsModal"><i class="fas fa-balance-scale"></i> Terms of Service</a>
+            <a href="#"><i class="fas fa-universal-access"></i> Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  
+</html>

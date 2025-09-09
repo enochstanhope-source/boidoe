@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/fa1.jpg" type="image/jpeg">
+  <title>Vocational Excellence - Crafting Skills for Success</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/vocational.css">
+  <link rel="stylesheet" href="styles/newsletter.css">
+  <link rel="stylesheet" href="styles/modal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </noscript>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="scripts/firebase-init.js"></script>
+  
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/enrollment.js" defer></script>
+  <script src="scripts/newsletter.js" defer></script>
+  <script src="scripts/modal.js" defer></script>
+</head>
+<body>
+    <div id="loader-overlay">
+      <div class="loader-spinner"></div>
+    </div>
+    <!-- Menu will be injected here by menu.js -->
+  <main>
+      <section class="popular-products">
+        <h2  style="font-size:1.9rem; color:#ebebeb; font-weight:400; text-align: center; letter-spacing:2px; margin-bottom:1rem; text-shadow:0 6px 8px rgb(255, 255, 255);">Creativity Skills Courses</h2>
+        <div class="product-grid">
+          <!-- Artisan skills course cards -->
+          <div class="product-card" data-course-id="tailoring">
+            <button class="favorite"><i class="fas fa-cut"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cut"></i> Tailoring</div>
+              <h3>Tailoring & Fashion Design</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 12 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.9 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">120 Students</span>
+              </div>
+              <p class="price">₦80,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="carpentry">
+            <button class="favorite"><i class="fas fa-hammer"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-hammer"></i> Carpentry</div>
+              <h3>Carpentry & Woodwork</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">100 Students</span>
+              </div>
+              <p class="price">₦75,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="plumbing">
+            <button class="favorite"><i class="fas fa-wrench"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-wrench"></i> Plumbing</div>
+              <h3>Plumbing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦70,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="electrical">
+            <button class="favorite"><i class="fas fa-bolt"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-bolt"></i> Electrical</div>
+              <h3>Electrical Installation</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">90 Students</span>
+              </div>
+              <p class="price">₦85,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="hairdressing">
+            <button class="favorite"><i class="fas fa-scissors"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-scissors"></i> Hairdressing</div>
+              <h3>Hairdressing & Beauty Therapy</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">110 Students</span>
+              </div>
+              <p class="price">₦65,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="catering">
+            <button class="favorite"><i class="fas fa-utensils"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-utensils"></i> Catering</div>
+              <h3>Catering & Culinary Arts</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">95 Students</span>
+              </div>
+              <p class="price">₦90,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="welding">
+            <button class="favorite"><i class="fas fa-fire"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-fire"></i> Welding</div>
+              <h3>Welding & Metalwork</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">70 Students</span>
+              </div>
+              <p class="price">₦80,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="auto-mechanics">
+            <button class="favorite"><i class="fas fa-car"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-car"></i> Auto Mechanics</div>
+              <h3>Auto Mechanics</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 12 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦95,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="painting">
+            <button class="favorite"><i class="fas fa-paint-roller"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-paint-roller"></i> Painting</div>
+              <h3>Painting & Decoration</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">50 Students</span>
+              </div>
+              <p class="price">₦60,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="bricklaying">
+            <button class="favorite"><i class="fas fa-bricks"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-bricks"></i> Bricklaying</div>
+              <h3>Bricklaying & Masonry</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦65,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="barbing">
+            <button class="favorite"><i class="fas fa-user"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-user"></i> Barbing</div>
+              <h3>Barbing & Grooming</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">100 Students</span>
+              </div>
+              <p class="price">₦60,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="barbing">
+            <button class="favorite"><i class="fas fa-user"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-user"></i> Barbing</div>
+              <h3>Barbing & Grooming</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">100 Students</span>
+              </div>
+              <p class="price">₦60,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="shoemaking">
+            <button class="favorite"><i class="fas fa-shoe-prints"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-shoe-prints"></i> Shoemaking</div>
+              <h3>Shoemaking & Leatherwork</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦70,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="beadmaking">
+            <button class="favorite"><i class="fas fa-gem"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-gem"></i> Beadmaking</div>
+              <h3>Beadmaking & Jewelry Craft</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦50,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="cobbling">
+            <button class="favorite"><i class="fas fa-shoe-prints"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-shoe-prints"></i> Cobbling</div>
+              <h3>Cobbling & Shoe Repair</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦55,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="furniture">
+            <button class="favorite"><i class="fas fa-couch"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-couch"></i> Furniture</div>
+              <h3>Furniture Making</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 12 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">70 Students</span>
+              </div>
+              <p class="price">₦90,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="pottery">
+            <button class="favorite"><i class="fas fa-burn"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-burn"></i> Pottery</div>
+              <h3>Pottery & Ceramics</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦55,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="baking">
+            <button class="favorite"><i class="fas fa-bread-slice"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-bread-slice"></i> Baking</div>
+              <h3>Baking & Pastry</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">50 Students</span>
+              </div>
+              <p class="price">₦50,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="blacksmithing">
+            <button class="favorite"><i class="fas fa-hammer"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-hammer"></i> Blacksmithing</div>
+              <h3>Blacksmithing & Metal Craft</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">35 Students</span>
+              </div>
+              <p class="price">₦65,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="soapmaking">
+            <button class="favorite"><i class="fas fa-soap"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-soap"></i> Soapmaking</div>
+              <h3>Soapmaking & Cosmetics</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">45 Students</span>
+              </div>
+              <p class="price">₦55,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+  </main>
+  <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About FPNO Skills Hub</h3>
+          <ul>
+            <li><a href="#" onclick="event.preventDefault(); window.location.href='ourstory.html';"><i class="fas fa-book-open"></i> Our Story</a></li>
+            <li class="ourteam-mobile-margin"><a href="#" onclick="event.preventDefault(); window.location.href='ourteam.html';"><i class="fas fa-users"></i> Our Team</a></li>
+            <li><a href="#" onclick="event.preventDefault(); window.location.href='press.html';"><i class="fas fa-bullhorn"></i> Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Programs</h3>
+          <ul>
+            <li><a href="digital.html"><i class="fas fa-laptop-code"></i> Digital & Tech Skills</a></li>
+            <li><a href="business.html"><i class="fas fa-briefcase"></i> Business Skills</a></li>
+            <li><a href="vocational.html"><i class="fas fa-tools"></i> Vocational Skills</a></li>
+            <li><a href="soft.html"><i class="fas fa-user-graduate"></i> Soft & Employability Skills</a></li>
+
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="support.html"><i class="fas fa-headset"></i> Customer Support</a></li>
+            <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Store Locations</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="newsletter">
+            <h4>Get Updates on New Courses</h4>
+            <form class="newsletter-form" id="newsletterForm">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                pattern="[a-z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$"
+                title="Please enter a valid email address (gmail.com, yahoo.com, outlook.com, or hotmail.com)"
+                required 
+              />
+              <button type="submit" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <span class="sending-text">Sending...</span>
+            </form>
+            <div class="newsletter-message" id="newsletterMessage"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="payment-methods">
+          <picture>
+            <img src="images/visa.jpg" alt="Visa" />
+          </picture>
+          <picture>
+            <img src="images/mastercard.jpg" alt="Mastercard" />
+          </picture>
+          <picture>
+            <img src="images/verve.jpg" alt="Verve" />
+          </picture>
+  <!-- Preload above-the-fold hero images (WebP preferred) -->
+  <link rel="preload" href="images/serious1.webp" as="image" type="image/webp" />
+  <link rel="preload" href="images/seriuu.webp" as="image" type="image/webp" />
+  <link rel="preload" href="images/me7.webp" as="image" type="image/webp" />
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2025 FPNO Skill Acquisition Hub. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#" data-modal="privacyPolicyModal"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+            <a href="#" data-modal="termsModal"><i class="fas fa-balance-scale"></i> Terms of Service</a>
+            <a href="#"><i class="fas fa-universal-access"></i> Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="scripts/vocational.js" defer></script>
+</body>
+</html>

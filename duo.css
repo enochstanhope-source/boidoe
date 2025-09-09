@@ -1,0 +1,340 @@
+:root {
+    --primary-color: #ffffff;
+    --admin-color: #000000;
+    --driver-color: #b00900;
+    --secondary-color: #333;
+    --text-color: #8f8787;
+    --bg-color: hsl(0, 0%, 100%);
+    --error-color: #ff3c3c;
+    --success-color: #28a745;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.cancel-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.cancel-button:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.cancel-button i {
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .cancel-button {
+        display: none;
+    }
+}
+
+body {
+    background: linear-gradient(135deg, #000000, #3b0101);
+    min-height: 116vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    background: linear-gradient(to right, #000000, #000000);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 90%;
+    max-width: 900px;
+    padding: 1rem;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.forms-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-section {
+    padding: 1.5rem;
+    background: rgb(255, 8, 8);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(142, 141, 141, 0.56);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-section {
+    border-left: 5px solid black;
+    background: linear-gradient(to right, rgba(44, 62, 80, 0.05), rgb(27, 26, 8));
+}
+
+.driver-section {
+    border-left: 5px solid black;
+    background: linear-gradient(to right, rgba(230, 126, 34, 0.05), rgb(40, 2, 2));
+}
+
+.form-section h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.admin-section h2 {
+    color: white;
+    font-weight: 300;
+     text-shadow: 0 12px 24px rgb(215, 215, 215);
+    
+}
+
+.driver-section h2 {
+   color: white;
+    font-weight: 300;
+     text-shadow: 0 12px 24px rgb(255, 255, 255);
+}
+
+.form-section h2 i {
+    margin-right: 10px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+}
+
+.input-group .password-toggle {
+    left: auto;
+    right: 15px;
+    cursor: pointer;
+    color: rgb(212, 91, 91);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 2px solid #442828;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 0, 0, 0.1);
+    color: white;
+}
+
+.input-group input:focus {
+    border-color: #ff0000;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 0, 0, 0.15);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.admin-section button {
+    background: var(--admin-color);
+     box-shadow: 0 4px 15px rgba(191, 185, 185, 0.423);
+}
+
+.admin-section button:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
+.driver-section button {
+    background: var(--driver-color);
+    box-shadow: 0 4px 15px rgba(191, 185, 185, 0.423);
+}
+
+.driver-section button:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #b80000;
+    transform: translateY(-2px);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #000000;
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.help-text {
+    color: rgba(39, 221, 227, 0.542);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: rgb(255, 255, 255);
+    margin: 15% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+/* Error State */
+.input-error {
+    border-color: var(--error-color) !important;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .forms-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Loading State */
+button.loading {
+    background: #ccc;
+    pointer-events: none;
+}
+
+button.loading::after {
+    content: "...";
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}
+
+/* Back to Home Button Styles */
+.back-to-home {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    background: #b80000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.home-button i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}

@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/fa1.jpg" type="image/jpeg">
+  <title>Digital Mastery - Crafting Tomorrow's Tech Leaders</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/digital.css">
+  <link rel="stylesheet" href="styles/newsletter.css">
+  <link rel="stylesheet" href="styles/modal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </noscript>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="scripts/firebase-init.js"></script>
+  
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/enrollment.js" defer></script>
+  <script src="scripts/newsletter.js" defer></script>
+  <script src="scripts/modal.js" defer></script>
+</head>
+<body>
+    <div id="loader-overlay">
+      <div class="loader-spinner"></div>
+    </div>
+    <!-- Menu will be injected here by menu.js -->
+  <main>
+      <section class="popular-products">
+        <h2  style="font-size:1.9rem; color:#ebebeb; font-weight:400; text-align: center; letter-spacing:2px; margin-bottom:1rem; text-shadow:0 6px 8px rgb(255, 255, 255);">Digital Skills Courses</h2>
+        <div class="product-grid">
+          <!-- 50 cards for digital skills -->
+          <div class="product-card" data-course-id="ai">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-robot"></i> AI & Machine Learning</div>
+              <h3>Artificial Intelligence</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 12 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.9 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">210 Students</span>
+              </div>
+              <p class="price">₦180,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="cybersecurity">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-shield-alt"></i> Security</div>
+              <h3>Cybersecurity</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">180 Students</span>
+              </div>
+              <p class="price">₦150,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="iot">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-network-wired"></i> IoT</div>
+              <h3>Internet of Things (IoT)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">160 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="cloud">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cloud"></i> Cloud</div>
+              <h3>Cloud Computing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">175 Students</span>
+              </div>
+              <p class="price">₦155,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="data-science">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-database"></i> Data</div>
+              <h3>Data Science</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 12 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.9 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">220 Students</span>
+              </div>
+              <p class="price">₦200,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <!-- Repeat similar cards for 45 more digital skills -->
+          <!-- New cards for requested digital skills -->
+          <div class="product-card" data-course-id="web3-dev">
+            <button class="favorite"><i class="fab fa-ethereum"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-ethereum"></i> Web3</div>
+              <h3>Web3 Development</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="ar-dev">
+            <button class="favorite"><i class="fas fa-glasses"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-glasses"></i> AR</div>
+              <h3>AR Development</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="vr-dev">
+            <button class="favorite"><i class="fas fa-vr-cardboard"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-vr-cardboard"></i> VR</div>
+              <h3>VR Development</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="mixed-reality">
+            <button class="favorite"><i class="fas fa-cube"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cube"></i> MR</div>
+              <h3>Mixed Reality (MR)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="digital-twins">
+            <button class="favorite"><i class="fas fa-clone"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-clone"></i> Digital Twins</div>
+              <h3>Digital Twins</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">15 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="spatial-computing">
+            <button class="favorite"><i class="fas fa-globe"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-globe"></i> Spatial</div>
+              <h3>Spatial Computing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">10 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="robotics-programming">
+            <button class="favorite"><i class="fas fa-robot"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-robot"></i> Robotics</div>
+              <h3>Robotics Programming</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">25 Students</span>
+              </div>
+              <p class="price">₦150,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="drone-tech">
+            <button class="favorite"><i class="fas fa-helicopter"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-helicopter"></i> Drone</div>
+              <h3>Drone Technology</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="3d-printing">
+            <button class="favorite"><i class="fas fa-print"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-print"></i> 3D Printing</div>
+              <h3>3D Printing & Additive Manufacturing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">15 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="ethical-hacking">
+            <button class="favorite"><i class="fas fa-user-secret"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-user-secret"></i> Security</div>
+              <h3>Ethical Hacking / Penetration Testing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="network-security">
+            <button class="favorite"><i class="fas fa-shield-alt"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-shield-alt"></i> Net Security</div>
+              <h3>Network Security</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="application-security">
+            <button class="favorite"><i class="fas fa-lock"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-lock"></i> App Security</div>
+              <h3>Application Security</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="cloud-security">
+            <button class="favorite"><i class="fas fa-cloud"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cloud"></i> Cloud Security</div>
+              <h3>Cloud Security</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="soc">
+            <button class="favorite"><i class="fas fa-shield-virus"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-shield-virus"></i> SOC</div>
+              <h3>Security Operations (SOC)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="threat-intelligence">
+            <button class="favorite"><i class="fas fa-search"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-search"></i> Threat Intel</div>
+              <h3>Threat Intelligence</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">15 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="cryptography">
+            <button class="favorite"><i class="fas fa-key"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-key"></i> Crypto</div>
+              <h3>Cryptography</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="zero-trust">
+            <button class="favorite"><i class="fas fa-user-shield"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-user-shield"></i> Zero Trust</div>
+              <h3>Zero Trust Architecture</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">10 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="digital-forensics">
+            <button class="favorite"><i class="fas fa-fingerprint"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-fingerprint"></i> Forensics</div>
+              <h3>Digital Forensics</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">10 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="identity-access">
+            <button class="favorite"><i class="fas fa-id-badge"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-id-badge"></i> IAM</div>
+              <h3>Identity & Access Management</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">10 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="ui-ux-design">
+            <button class="favorite"><i class="fas fa-pencil-ruler"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-pencil-ruler"></i> UI/UX</div>
+              <h3>UI/UX Design</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="hci">
+            <button class="favorite"><i class="fas fa-users"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-users"></i> HCI</div>
+              <h3>Human-Computer Interaction (HCI)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="design-thinking">
+            <button class="favorite"><i class="fas fa-lightbulb"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-lightbulb"></i> Design Thinking</div>
+              <h3>Design Thinking</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="prototyping">
+            <button class="favorite"><i class="fas fa-object-group"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-object-group"></i> Prototyping</div>
+              <h3>Prototyping (Figma, Adobe XD)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="interaction-design">
+            <button class="favorite"><i class="fas fa-exchange-alt"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-exchange-alt"></i> Interaction</div>
+              <h3>Interaction Design</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="motion-graphics">
+            <button class="favorite"><i class="fas fa-film"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-film"></i> Motion Graphics</div>
+              <h3>Motion Graphics for UI</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="accessibility-engineering">
+            <button class="favorite"><i class="fas fa-universal-access"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-universal-access"></i> Accessibility</div>
+              <h3>Accessibility Engineering</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="information-architecture">
+            <button class="favorite"><i class="fas fa-sitemap"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-sitemap"></i> Info Arch</div>
+              <h3>Information Architecture</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="rpa">
+            <button class="favorite"><i class="fas fa-robot"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-robot"></i> RPA</div>
+              <h3>Robotic Process Automation (RPA)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="workflow-automation">
+            <button class="favorite"><i class="fas fa-sync-alt"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-sync-alt"></i> Workflow</div>
+              <h3>Workflow Automation (Zapier, n8n, Make)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="low-code-no-code">
+            <button class="favorite"><i class="fas fa-code"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-code"></i> Low-Code</div>
+              <h3>Low-Code / No-Code Development</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦100,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="data-visualization">
+            <button class="favorite"><i class="fas fa-chart-pie"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-chart-pie"></i> Visualization</div>
+              <h3>Data Visualization (Tableau, Power BI, D3.js)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="computer-networking">
+            <button class="favorite"><i class="fas fa-network-wired"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-network-wired"></i> Networking</div>
+              <h3>Computer Networking</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">70 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="network-engineering">
+            <button class="favorite"><i class="fas fa-project-diagram"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-project-diagram"></i> Net Eng</div>
+              <h3>Network Engineering</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">50 Students</span>
+              </div>
+              <p class="price">₦150,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="systems-admin">
+            <button class="favorite"><i class="fas fa-server"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-server"></i> Sys Admin</div>
+              <h3>Systems Administration</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="linux-admin">
+            <button class="favorite"><i class="fab fa-linux"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-linux"></i> Linux</div>
+              <h3>Linux Administration</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">70 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="windows-server">
+            <button class="favorite"><i class="fab fa-windows"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-windows"></i> Windows Server</div>
+              <h3>Windows Server Administration</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="virtualization">
+            <button class="favorite"><i class="fas fa-layer-group"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-layer-group"></i> Virtualization</div>
+              <h3>Virtualization (VMware, Hyper-V)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">50 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="containerization">
+            <button class="favorite"><i class="fab fa-docker"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-docker"></i> Docker</div>
+              <h3>Containerization (Docker)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="kubernetes">
+            <button class="favorite"><i class="fas fa-cubes"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cubes"></i> Kubernetes</div>
+              <h3>Kubernetes & Orchestration</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="edge-computing">
+            <button class="favorite"><i class="fas fa-cloud"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cloud"></i> Edge</div>
+              <h3>Edge Computing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="5g-tech">
+            <button class="favorite"><i class="fas fa-broadcast-tower"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-broadcast-tower"></i> 5G</div>
+              <h3>5G Technology</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="quantum-computing">
+            <button class="favorite"><i class="fas fa-atom"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-atom"></i> Quantum</div>
+              <h3>Quantum Computing</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">10 Students</span>
+              </div>
+              <p class="price">₦150,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="blockchain-dev">
+            <button class="favorite"><i class="fas fa-link"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-link"></i> Blockchain</div>
+              <h3>Blockchain Development</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="smart-contracts">
+            <button class="favorite"><i class="fab fa-ethereum"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-ethereum"></i> Smart Contracts</div>
+              <h3>Smart Contracts (Solidity, Ethereum)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">20 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="javascript-typescript">
+            <button class="favorite"><i class="fab fa-js-square"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-js"></i> JS/TS</div>
+              <h3>JavaScript/TypeScript</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">180 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="c-cpp">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-code"></i> C/C++</div>
+              <h3>C/C++</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">120 Students</span>
+              </div>
+              <p class="price">₦160,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="rust">
+            <button class="favorite"><i class="fab fa-rust"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-rust"></i> Rust</div>
+              <h3>Rust</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">90 Students</span>
+              </div>
+              <p class="price">₦150,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="go">
+            <button class="favorite"><i class="fab fa-golang"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-golang"></i> Go</div>
+              <h3>Go (Golang)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="php">
+            <button class="favorite"><i class="fab fa-php"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-php"></i> PHP</div>
+              <h3>PHP</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">110 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="ruby">
+            <button class="favorite"><i class="fab fa-gem"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-gem"></i> Ruby</div>
+              <h3>Ruby</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">100 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="swift">
+            <button class="favorite"><i class="fab fa-swift"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-swift"></i> Swift</div>
+              <h3>Swift</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">90 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="kotlin">
+            <button class="favorite"><i class="fab fa-korvue"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-korvue"></i> Kotlin</div>
+              <h3>Kotlin</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="r-programming">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-chart-line"></i> R</div>
+              <h3>R Programming</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">70 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="matlab">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-superscript"></i> MATLAB</div>
+              <h3>MATLAB</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦110,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="scala">
+            <button class="favorite"><i class="fab fa-scalable"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-scalable"></i> Scala</div>
+              <h3>Scala</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">50 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="sql-db">
+            <button class="favorite"><i class="fas fa-database"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-database"></i> SQL</div>
+              <h3>SQL & Database Management</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">140 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="nosql">
+            <button class="favorite"><i class="fas fa-database"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-database"></i> NoSQL</div>
+              <h3>NoSQL Databases (MongoDB, Cassandra)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="graph-db">
+            <button class="favorite"><i class="fas fa-project-diagram"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-project-diagram"></i> Graph DB</div>
+              <h3>Graph Databases (Neo4j)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="data-engineering">
+            <button class="favorite"><i class="fas fa-tools"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-tools"></i> Data Eng</div>
+              <h3>Data Engineering</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">70 Students</span>
+              </div>
+              <p class="price">₦160,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="etl-pipelines">
+            <button class="favorite"><i class="fas fa-stream"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-stream"></i> ETL</div>
+              <h3>ETL Pipelines</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">60 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="big-data">
+            <button class="favorite"><i class="fas fa-database"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-database"></i> Big Data</div>
+              <h3>Big Data (Hadoop, Spark)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">50 Students</span>
+              </div>
+              <p class="price">₦160,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="data-warehousing">
+            <button class="favorite"><i class="fas fa-warehouse"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-warehouse"></i> Warehousing</div>
+              <h3>Data Warehousing (Snowflake, Redshift)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">40 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="bi-tools">
+            <button class="favorite"><i class="fas fa-chart-bar"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-chart-bar"></i> BI Tools</div>
+              <h3>Business Intelligence (BI) Tools</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">30 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="mobile-app">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-mobile-alt"></i> Mobile</div>
+              <h3>Mobile App Development (iOS/Android)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">150 Students</span>
+              </div>
+              <p class="price">₦160,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="cross-platform">
+            <button class="favorite"><i class="fas fa-code"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-react"></i> Cross-Platform</div>
+              <h3>Cross-Platform Development (Flutter, React Native)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">120 Students</span>
+              </div>
+              <p class="price">₦150,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="game-dev">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-gamepad"></i> Game Dev</div>
+              <h3>Game Development (Unity, Unreal)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 12 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.9 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">100 Students</span>
+              </div>
+              <p class="price">₦180,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="software-architecture">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-project-diagram"></i> Architecture</div>
+              <h3>Software Architecture</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 10 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">90 Students</span>
+              </div>
+              <p class="price">₦170,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="embedded-systems">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-microchip"></i> Embedded</div>
+              <h3>Embedded Systems Programming</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">80 Students</span>
+              </div>
+              <p class="price">₦140,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="api-dev">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-plug"></i> API</div>
+              <h3>API Development & Integration</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">110 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="devops">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-cogs"></i> DevOps</div>
+              <h3>DevOps Engineering</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.7 ⭐⭐⭐⭐</span>
+                <span class="reviews">95 Students</span>
+              </div>
+              <p class="price">₦145,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="version-control">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-git-alt"></i> Version Control</div>
+              <h3>Version Control (Git & GitHub/GitLab)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 4 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.8 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">130 Students</span>
+              </div>
+              <p class="price">₦90,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="paradigms">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fas fa-layer-group"></i> Paradigms</div>
+              <h3>Programming Paradigms (OOP, Functional, etc.)</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.6 ⭐⭐⭐⭐</span>
+                <span class="reviews">85 Students</span>
+              </div>
+              <p class="price">₦120,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+          <div class="product-card" data-course-id="python">
+            <button class="favorite"><i class="fas fa-bookmark"></i></button>
+            <div class="product-info">
+              <div class="course-badge"><i class="fab fa-python"></i> Python</div>
+              <h3>Python Programming</h3>
+              <div class="course-details">
+                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                <span class="level"><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="product-rating">
+                <span class="stars">4.9 ⭐⭐⭐⭐⭐</span>
+                <span class="reviews">200 Students</span>
+              </div>
+              <p class="price">₦130,000 <span class="installment">or 3 installments</span></p>
+              <button class="enroll">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+   <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About FPNO Skills Hub</h3>
+          <ul>
+            <li><a href="#" onclick="event.preventDefault(); window.location.href='ourstory.html';"><i class="fas fa-book-open"></i> Our Story</a></li>
+            <li class="ourteam-mobile-margin"><a href="#" onclick="event.preventDefault(); window.location.href='ourteam.html';"><i class="fas fa-users"></i> Our Team</a></li>
+            <li><a href="#" onclick="event.preventDefault(); window.location.href='press.html';"><i class="fas fa-bullhorn"></i> Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Programs</h3>
+          <ul>
+            <li><a href="digital.html"><i class="fas fa-laptop-code"></i> Digital & Tech Skills</a></li>
+            <li><a href="business.html"><i class="fas fa-briefcase"></i> Business Skills</a></li>
+            <li><a href="vocational.html"><i class="fas fa-tools"></i> Vocational Skills</a></li>
+            <li><a href="soft.html"><i class="fas fa-user-graduate"></i> Soft & Employability Skills</a></li>
+
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="support.html"><i class="fas fa-headset"></i> Customer Support</a></li>
+            <li><a href="map.html"><i class="fas fa-map-marker-alt"></i> Store Locations</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="newsletter">
+            <h4>Get Updates on New Courses</h4>
+            <form class="newsletter-form" id="newsletterForm">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                pattern="[a-z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$"
+                title="Please enter a valid email address (gmail.com, yahoo.com, outlook.com, or hotmail.com)"
+                required 
+              />
+              <button type="submit" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <span class="sending-text">Sending...</span>
+            </form>
+            <div class="newsletter-message" id="newsletterMessage"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="payment-methods">
+          <picture>
+            <img src="images/visa.jpg" alt="Visa" />
+          </picture>
+          <picture>
+            <img src="images/mastercard.jpg" alt="Mastercard" />
+          </picture>
+          <picture>
+            <img src="images/verve.jpg" alt="Verve" />
+          </picture>
+  <!-- Preload above-the-fold hero images (WebP preferred) -->
+  <link rel="preload" href="images/serious1.webp" as="image" type="image/webp" />
+  <link rel="preload" href="images/seriuu.webp" as="image" type="image/webp" />
+  <link rel="preload" href="images/me7.webp" as="image" type="image/webp" />
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2025 FPNO Skill Acquisition Hub. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#" data-modal="privacyPolicyModal"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+            <a href="#" data-modal="termsModal"><i class="fas fa-balance-scale"></i> Terms of Service</a>
+            <a href="#"><i class="fas fa-universal-access"></i> Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/digital.js"></script>
+</body>
+</html>
