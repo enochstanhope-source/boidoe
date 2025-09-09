@@ -1946,7 +1946,7 @@ nav {
 
 /* Footer Styles */
 .footer {
-    background: linear-gradient(to right,  #898484,  #000000);
+    background: linear-gradient(to right,  #848589,  #000000);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 4rem 5% 2rem;

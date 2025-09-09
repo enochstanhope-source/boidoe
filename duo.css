@@ -1,7 +1,7 @@
 :root {
     --primary-color: #ffffff;
-    --admin-color: #000000;
-    --driver-color: #b00900;
+    --admin-color:linear-gradient(to right, #010101, #989595);
+    --driver-color:  linear-gradient(to right, #010101, #989595);
     --secondary-color: #333;
     --text-color: #8f8787;
     --bg-color: hsl(0, 0%, 100%);

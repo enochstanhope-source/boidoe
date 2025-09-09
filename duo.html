@@ -7,14 +7,48 @@
     <link rel="stylesheet" href="duo.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @media (min-width: 769px) {
+            .back-button {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 30px;
+                z-index: 100;
+                background: linear-gradient(90deg, #262626 0%, #ff3c3c 100%);
+                color: #fff;
+                border: none;
+                border-radius: 10px;
+                padding: 0.7rem 2.2rem;
+                font-size: 1.1rem;
+                font-weight: 600;
+                box-shadow: 0 4px 16px rgba(220,26,26,0.15);
+                cursor: pointer;
+                transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+                letter-spacing: 1px;
+                outline: none;
+            }
+            .back-button:hover, .back-button:focus {
+                background: linear-gradient(90deg, #b80000 0%, #dc1a1a 100%);
+                transform: translateX(-50%) scale(1.04);
+                box-shadow: 0 8px 24px rgba(220,26,26,0.25);
+            }
+        }
+        @media (max-width: 768px) {
+            .back-button {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body style="padding-top: 70px;">
     <a href="index.html" id="cancelButton" class="cancel-button">
         <i class="fas fa-times"></i>
     </a>
-  
-    
-    <div class="container" style="display: block;">
+
+    <button type="button" class="back-button">Back to Home</button>
+    <div class="container">
         <div class="forms-container">
             <!-- Admin Login Form -->
             <div class="form-section admin-section" id="adminSection">
@@ -50,12 +84,12 @@
                 </form>
                 <p class="switch-form" style="text-align:center; margin-top: 24px; font-size: 1.08rem; color: #333;">
                     <span style="opacity:5;color: rgba(199, 199, 3, 0.833);font-size: 15px;font-weight: 300;margin-bottom: 13px;">Haven't registered with us?</span> 
-                    <a href="#" id="showAdminLink" style="
+                    <a href="signup.html" id="showAdminLink" style="
                         display: inline-block;
                         margin-left: 8px;
                         padding: 10px 23px;
                         border-radius: 20px;
-                        background: linear-gradient(90deg, #2e0202 60%, #d30000 100%);
+                        background: linear-gradient(to right, #010101, #989595);
                         color: #fff;
                         font-weight: 300;
                         margin-top: 10px;
@@ -79,10 +113,6 @@
             </p>
         </div>
     </div>
-
-    
- 
-   
 
     <!-- Alert Modal -->
     <div class="modal" id="alertModal">

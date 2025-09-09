@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="images/fa1.jpg" ty          .services {
+    <link rel="shortcut icon" href="images/fa1.jpg" 
+            .services {
             padding: 2rem 1rem;
             background: #111111;
             position: relative;
@@ -50,7 +51,7 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/fav.ico" />
+    <link rel="icon" type="image/x-icon" href="images/mastercard.jpg" />
 
     <!-- Critical CSS -->
     <link rel="stylesheet" href="styles/index.css" />
@@ -116,6 +117,7 @@
       }
     </script>
   </head>
+
   <body>
     <!-- Loader Start -->
     <div id="loader-overlay">
@@ -126,7 +128,7 @@
 
 
 
-    <main>
+    <main >
       <section class="hero">
         <div class="slider-container">
           <div class="slider-track">
@@ -181,7 +183,24 @@
             Real-time tracking, smart fleet management, and advanced analytics for optimized campus transportation.<br>
             Experience the future of institutional transit.
           </p>
-          <button class="cta-button" onclick="location.href='duo.html'">Access Dashboard</button>
+          <!-- Dynamic CTA Button -->
+<button class="cta-button" id="ctaBtn">Access Dashboard</button>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+      firebase.auth().onAuthStateChanged(function(user) {
+        var btn = document.getElementById('ctaBtn');
+        if (user) {
+          btn.textContent = 'My Dashboard';
+          btn.onclick = function() { window.location.href = 'digital.html'; };
+        } else {
+          btn.textContent = 'Access Dashboard';
+          btn.onclick = function() { window.location.href = 'duo.html'; };
+        }
+      });
+    }
+  });
+</script>
           <style>
           .newsletter-form input[type="email"]::placeholder {
             color: #fff;
@@ -278,6 +297,8 @@
           </div>
         </div>
       </section>
+
+
        <style>
           .hero {
             height: 80vh;
