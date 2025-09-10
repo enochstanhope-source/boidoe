@@ -315,10 +315,26 @@ function injectMobileMenu() {
 // Function to update account menu based on auth state
 function updateAccountMenu(user) {
   const accountDropdown = document.querySelector('.nav-dropdown:last-child .dropdown');
+  const adminPanel = document.querySelector('.nav-dropdown:nth-child(2)'); // About Us/Admin Dashboard
+  const driverPanel = document.querySelector('.nav-dropdown:nth-child(3)'); // Programs/Driver Panel
+
   if (!accountDropdown) return;
 
-  if (user) {
-    // User is signed in
+  // Use stored role if present (set by duo.js), otherwise if firebase user exists assume driver
+  const storedRole = localStorage.getItem('userRole');
+  const role = storedRole || (user ? 'driver' : null);
+  const isSignedIn = !!role;
+
+  if (isSignedIn) {
+    // Show/hide panels based on role
+    if (role === 'admin') {
+      if (adminPanel) adminPanel.style.display = 'block';
+      if (driverPanel) driverPanel.style.display = 'none';
+    } else {
+      if (adminPanel) adminPanel.style.display = 'none';
+      if (driverPanel) driverPanel.style.display = 'block';
+    }
+
     accountDropdown.innerHTML = `
       <li><a href="duo.html">Access Dashboard</a></li>
       <li><a href="#" id="signOutBtn"><span id="signOutText">Sign Out</span></a></li>
@@ -326,18 +342,28 @@ function updateAccountMenu(user) {
     // Add sign out functionality
     const signOutBtn = document.getElementById('signOutBtn');
     if (signOutBtn) {
-      signOutBtn.addEventListener('click', (e) => {
+            signOutBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // Create progress bar overlay
+        // Create progress overlay (clean, professional circular spinner + label)
         let loaderOverlay = document.createElement('div');
         loaderOverlay.id = 'loaderOverlay';
         loaderOverlay.innerHTML = `
           <div class="progressbar-overlay">
             <div class="progressbar-container">
-              <div class="progressbar-label">Signing Out...</div>
-              <div class="progressbar-bg">
-                <div class="progressbar-fill" id="signOutProgressBar"></div>
+              <div class="pb-top">
+                <svg class="pb-circle" viewBox="0 0 50 50" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="pbGrad" x1="0" x2="1">
+                      <stop offset="0%" stop-color="#ff1a1a"/>
+                      <stop offset="100%" stop-color="#3f020b"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="pb-bg" cx="25" cy="25" r="20" fill="none" stroke="#efeef0" stroke-width="4"></circle>
+                  <circle class="pb-fg" cx="25" cy="25" r="20" fill="none" stroke="url(#pbGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="126"></circle>
+                </svg>
+                <div class="progressbar-label">Signing out…</div>
               </div>
+              <div class="progressbar-sub">Saving session and signing out securely</div>
             </div>
           </div>
         `;
@@ -351,84 +377,55 @@ function updateAccountMenu(user) {
               position: fixed;
               top: 0; left: 0;
               width: 100vw; height: 100vh;
-              background: rgba(30, 30, 60, 0.45);
+              background: rgba(20,20,30,0.55);
               z-index: 99999;
               display: flex;
               align-items: center;
               justify-content: center;
-              backdrop-filter: blur(8px) saturate(180%);
+              backdrop-filter: blur(6px) saturate(150%);
             }
             .progressbar-container {
-              background: rgba(255,255,255,0.18);
-              border-radius: 24px;
-              box-shadow: 0 8px 32px #3f020b44;
-              padding: 44px 56px;
-              min-width: 340px;
+              background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+              border-radius: 16px;
+              box-shadow: 0 12px 40px rgba(31,9,11,0.6);
+              padding: 28px 36px;
+              min-width: 280px;
               display: flex;
               flex-direction: column;
               align-items: center;
-              border: 1.5px solid rgba(255,255,255,0.25);
+              border: 1px solid rgba(255,255,255,0.06);
             }
-            .progressbar-label {
-              font-size: 1.35rem;
-              font-weight: 700;
-              color: #3f020b;
-              margin-bottom: 28px;
-              letter-spacing: 1.5px;
-              text-shadow: 0 2px 12px #fff8, 0 1px 0 #fff;
-            }
-            .progressbar-bg {
-              width: 100%;
-              height: 22px;
-              background: rgba(255,255,255,0.35);
-              border-radius: 11px;
-              overflow: hidden;
-              box-shadow: 0 2px 12px #3f020b22;
-              border: 1px solid #fff3;
-            }
-            .progressbar-fill {
-              height: 100%;
-              width: 0%;
-              background: linear-gradient(270deg, #ff1a1a, #3f020b, #ffb347, #3f020b);
-              background-size: 400% 400%;
-              border-radius: 11px;
-              transition: width 0.2s linear;
-              animation: gradientMove 2s ease-in-out infinite;
-            }
-            @keyframes gradientMove {
-              0% {background-position:0% 50%;}
-              50% {background-position:100% 50%;}
-              100% {background-position:0% 50%;}
-            }
-            .progressbar-check {
-              margin-top: 24px;
-              width: 48px;
-              height: 48px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              background: rgba(255,255,255,0.7);
-              border-radius: 50%;
-              box-shadow: 0 2px 8px #3f020b22;
-              animation: popCheck 0.5s ease;
-            }
-            @keyframes popCheck {
-              0% {transform: scale(0.5); opacity:0;}
-              80% {transform: scale(1.1); opacity:1;}
-              100% {transform: scale(1); opacity:1;}
-            }
+            .pb-top{display:flex;align-items:center;gap:18px}
+            .pb-circle{width:64px;height:64px}
+            .pb-bg{opacity:0.9}
+            .pb-fg{transition:stroke-dashoffset 0.2s linear}
+            .progressbar-label{font-size:1.05rem;font-weight:700;color:#fff;margin:0}
+            .progressbar-sub{font-size:0.9rem;color:rgba(255,255,255,0.8);margin-top:10px}
+            .progressbar-check{margin-top:16px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 6px 18px rgba(0,0,0,0.12);transform:scale(0);opacity:0;transition:transform .2s ease,opacity .2s ease}
+            .progressbar-check.show{transform:scale(1);opacity:1}
           `;
           document.head.appendChild(style);
         }
         // Animate progress bar for 5 seconds
-        const progressBar = document.getElementById('signOutProgressBar');
+        // Support either the old linear progress element (div) or the new circular SVG (.pb-fg)
+        let progressBar = document.getElementById('signOutProgressBar') || document.querySelector('.pb-fg');
         let progress = 0;
         const duration = 5000; // 5 seconds
         const interval = 50;
         const step = 100 / (duration / interval);
-        const progressInterval = setInterval(() => {
+            const progressInterval = setInterval(() => {
           progress += step;
-          if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+          if (progressBar) {
+            // If SVG circle, animate stroke-dashoffset
+            if (typeof progressBar.getTotalLength === 'function') {
+              const circumference = progressBar.getTotalLength();
+              const offset = Math.max(circumference - (progress / 100) * circumference, 0);
+              progressBar.style.strokeDashoffset = offset;
+            } else {
+              // fallback for linear div
+              progressBar.style.width = Math.min(progress, 100) + '%';
+            }
+          }
           if (progress >= 100) {
             clearInterval(progressInterval);
             // Show checkmark animation before redirect
@@ -440,29 +437,53 @@ function updateAccountMenu(user) {
               container.appendChild(checkDiv);
             }
             setTimeout(() => {
-              firebase.auth().signOut().then(() => {
-                window.location.href = 'index.html';
-              }).catch((error) => {
-                console.error('Sign Out Error', error);
+              // clear local role markers before signing out
+              try { localStorage.removeItem('userRole'); } catch (e) {}
+              try { sessionStorage.removeItem('isAdmin'); sessionStorage.removeItem('adminUsername'); } catch (e) {}
+              // sign out if firebase available, else just redirect
+              if (typeof firebase !== 'undefined' && firebase.auth) {
+                firebase.auth().signOut().then(() => {
+                  window.location.href = 'index.html';
+                }).catch((error) => {
+                  console.error('Sign Out Error', error);
+                  if (loaderOverlay) loaderOverlay.remove();
+                  const signOutText = document.getElementById('signOutText');
+                  if (signOutText) signOutText.textContent = 'Sign Out';
+                });
+              } else {
                 if (loaderOverlay) loaderOverlay.remove();
-                const signOutText = document.getElementById('signOutText');
-                if (signOutText) signOutText.textContent = 'Sign Out';
-              });
+                window.location.href = 'index.html';
+              }
             }, 700); // show checkmark for 0.7s
           }
         }, interval);
-        // Change button text to progress bar
+        // Change button text to a small, professional inline spinner + label
         const signOutText = document.getElementById('signOutText');
         if (signOutText) {
-          signOutText.innerHTML = '<span style="display:inline-block;vertical-align:middle;color:#3f020b;font-weight:600;">Signing Out...</span>';
+          // Inject lightweight styles once
+          if (!document.getElementById('signOutInlineStyle')) {
+            const styleEl = document.createElement('style');
+            styleEl.id = 'signOutInlineStyle';
+            styleEl.innerHTML = `
+              .signout-inline{display:inline-flex;align-items:center;gap:10px}
+              .signout-spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(63,2,11,0.12);border-top-color:#3f020b;box-sizing:border-box;animation:signout-spin 0.8s linear infinite}
+              .signout-text{color:#3f020b;font-weight:600;font-size:0.95rem}
+              @keyframes signout-spin{to{transform:rotate(360deg)}}
+            `;
+            document.head.appendChild(styleEl);
+          }
+          signOutText.innerHTML = '<span class="signout-inline" aria-live="polite"><span class="signout-spinner" aria-hidden="true"></span><span class="signout-text">Signing out…</span></span>';
         }
       });
     }
   } else {
     // User is signed out
+    // Show both admin and driver panels
+    if (adminPanel) adminPanel.style.display = 'block';
+    if (driverPanel) driverPanel.style.display = 'block';
+    
     accountDropdown.innerHTML = `
       <li><a href="duo.html">Sign in</a></li>
-      
     `;
   }
 }

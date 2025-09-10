@@ -7,27 +7,39 @@
     <link rel="stylesheet" href="duo.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="scripts/firebase-init.js"></script>
     <style>
         @media (min-width: 769px) {
             .back-button {
+                /* We'll position this dynamically so it sits 10px above the .container */
                 display: block;
-                position: absolute;
+                position: absolute; /* top is set via script */
                 left: 50%;
                 transform: translateX(-50%);
-                top: 30px;
+                top: auto;
                 z-index: 100;
                 background: linear-gradient(90deg, #262626 0%, #ff3c3c 100%);
                 color: #fff;
                 border: none;
-                border-radius: 10px;
-                padding: 0.7rem 2.2rem;
-                font-size: 1.1rem;
+                /* pill-shaped, not edge-to-edge */
+                border-radius: 999px;
+                padding: 0.6rem 1.6rem;
+                font-size: 1.05rem;
                 font-weight: 600;
                 box-shadow: 0 4px 16px rgba(220,26,26,0.15);
                 cursor: pointer;
                 transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
                 letter-spacing: 1px;
                 outline: none;
+                max-width: 220px; /* avoid stretching too wide */
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
             .back-button:hover, .back-button:focus {
                 background: linear-gradient(90deg, #b80000 0%, #dc1a1a 100%);
@@ -41,13 +53,40 @@
             }
         }
     </style>
+
+    <script>
+        // Position the back-button 10px above the .container on desktop widths.
+        function positionBackButton() {
+            var btn = document.querySelector('.back-button');
+            var container = document.querySelector('.container');
+            if (!btn || !container) return;
+            if (window.innerWidth >= 769) {
+                // container top relative to document
+                var rect = container.getBoundingClientRect();
+                var containerTop = rect.top + window.scrollY;
+                var btnHeight = btn.offsetHeight || 40;
+                var top = containerTop - btnHeight - 30; // 10px above
+                // prevent negative top (in case container is very close to top)
+                if (top < 8) top = 8;
+                btn.style.top = top + 'px';
+                btn.style.left = '50%';
+                btn.style.transform = 'translateX(-50%)';
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+        window.addEventListener('load', positionBackButton);
+        window.addEventListener('resize', positionBackButton);
+        window.addEventListener('orientationchange', positionBackButton);
+    </script>
 </head>
 <body style="padding-top: 70px;">
     <a href="index.html" id="cancelButton" class="cancel-button">
         <i class="fas fa-times"></i>
     </a>
 
-    <button type="button" class="back-button">Back to Home</button>
+    <a href="index.html" class="back-button" aria-label="Back to Home">Back to Home</a>
     <div class="container">
         <div class="forms-container">
             <!-- Admin Login Form -->
@@ -56,11 +95,11 @@
                 <form id="adminForm" autocomplete="off">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="adminUsername" placeholder="Admin Username" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');">
+                        <input type="text" id="adminUsername" placeholder="Username (admin)" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');">
                     </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="adminPassword" placeholder="Admin Password" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');">
+                        <input type="password" id="adminPassword" placeholder="Password (admin)" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');">
                         <i class="fas fa-eye password-toggle" data-target="adminPassword"></i>
                     </div>
                     <button type="submit">Login as Admin</button>
@@ -73,7 +112,7 @@
                 <form id="driverForm" autocomplete="off">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="driverUsername" placeholder="Driver ID" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');">
+                        <input type="text" id="driverUsername" placeholder="Driver Email" required autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');">
                     </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
