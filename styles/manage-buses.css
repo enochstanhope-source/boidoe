@@ -1,0 +1,47 @@
+/* Manage Buses page styles */
+.simple-table {
+	width: 100%;
+	border-collapse: collapse;
+	background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+	color: var(--text-color);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 6px 18px rgba(12, 18, 25, 0.04);
+}
+.simple-table thead th {
+	text-align: left;
+	padding: 12px 14px;
+	font-size: 0.9rem;
+	border-bottom: 1px solid rgba(255,255,255,0.04);
+	background: rgba(0,0,0,0.02);
+}
+.simple-table tbody tr:hover { background: rgba(0,0,0,0.02); transform: translateZ(0); }
+.simple-table td {
+	padding: 12px 14px;
+	border-bottom: 1px solid rgba(255,255,255,0.02);
+	vertical-align: middle;
+}
+.simple-table tbody tr td.actions { display: flex; gap:8px; }
+
+.btn { background: var(--primary-color); color: #fff; padding: 8px 12px; border-radius:8px; border:none; cursor:pointer; box-shadow: 0 6px 14px rgba(12,18,25,0.04); }
+.btn.small { padding:6px 10px; font-size:0.85rem }
+
+.badge {
+	display: inline-block;
+	padding: 6px 8px;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: #fff;
+}
+.badge.green { background: #2ecc71 }
+.badge.yellow { background: #f1c40f }
+.badge.red { background: #e74c3c }
+.status-cell { font-weight:700 }
+
+@media (max-width: 900px) {
+	.simple-table thead { display: none; }
+	.simple-table tbody tr { display: block; margin-bottom: 12px; background: rgba(255,255,255,0.01); padding: 10px; border-radius: 8px; }
+	.simple-table td { display: block; padding: 6px 0; border-bottom: none; }
+}
+

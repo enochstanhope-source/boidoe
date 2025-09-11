@@ -190,18 +190,61 @@
 <button class="cta-button" id="ctaBtn">Access Dashboard</button>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    if (typeof firebase !== 'undefined' && firebase.auth) {
-      firebase.auth().onAuthStateChanged(function(user) {
-        var btn = document.getElementById('ctaBtn');
-        if (user) {
-          btn.textContent = 'My Dashboard';
-          btn.onclick = function() { window.location.href = 'digital.html'; };
-        } else {
-          btn.textContent = 'Access Dashboard';
-          btn.onclick = function() { window.location.href = 'duo.html'; };
+    var btn = document.getElementById('ctaBtn');
+    if (!btn) return;
+
+    function updateCTA() {
+      try {
+        // default state
+        btn.textContent = 'Access Dashboard';
+        btn.onclick = function() { window.location.href = 'duo.html'; };
+
+        // Firebase user (highest priority)
+        if (typeof firebase !== 'undefined' && firebase.auth) {
+          var user = firebase.auth().currentUser;
+          if (user) {
+            btn.textContent = 'My Dashboard';
+            btn.onclick = function() { window.location.href = 'digital.html'; };
+            return;
+          }
         }
-      });
+
+        // Fallback to stored role markers (admin uses sessionStorage + localStorage)
+        var storedRole = null;
+        try { storedRole = localStorage.getItem('userRole'); } catch (e) { storedRole = null; }
+        var isAdmin = false;
+        try { isAdmin = sessionStorage.getItem('isAdmin') === 'true' || storedRole === 'admin'; } catch (e) { isAdmin = (storedRole === 'admin'); }
+
+        if (isAdmin) {
+          btn.textContent = 'My Dashboard';
+          btn.onclick = function() { window.location.href = 'digital.html?mode=admin'; };
+          return;
+        }
+
+        if (storedRole === 'driver') {
+          btn.textContent = 'My Dashboard';
+          btn.onclick = function() { window.location.href = 'digital.html?mode=driver'; };
+          return;
+        }
+      } catch (err) {
+        // fallback safe behavior
+        btn.textContent = 'Access Dashboard';
+        btn.onclick = function() { window.location.href = 'duo.html'; };
+      }
     }
+
+    updateCTA();
+
+    // If firebase available, listen for changes
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+      firebase.auth().onAuthStateChanged(function() { updateCTA(); });
+    }
+
+    // Listen for storage changes from other tabs or after duo.html sets role markers
+    window.addEventListener('storage', function(e) {
+      if (!e) return;
+      if (e.key === 'userRole' || e.key === 'isAdmin') updateCTA();
+    });
   });
 </script>
           <style>

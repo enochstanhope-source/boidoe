@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trip Tracking - Admin</title>
+	<link rel="stylesheet" href="styles/dashboard.css">
+	<link rel="stylesheet" href="styles/tracking.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+	<div class="dashboard-container">
+		<nav class="sidebar">
+				<div class="sidebar-header">
+					<img src="images/polybadge.png" alt="FEDPONEK Logo" class="logo">
+					<h2>Bus Management</h2>
+					<button class="sidebar-close" aria-label="Close sidebar">×</button>
+				</div>
+			<ul class="nav-links">
+				<li>
+					<a href="dashboard.html">
+						<i class="fas fa-tachometer-alt"></i>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a href="manage-buses.html">
+						<i class="fas fa-bus"></i>
+						<span>Manage Buses</span>
+					</a>
+				</li>
+				<li>
+					<a href="manage-drivers.html">
+						<i class="fas fa-user-tie"></i>
+						<span>Manage Drivers</span>
+					</a>
+				</li>
+				<li class="active">
+					<a href="tracking.html">
+						<i class="fas fa-route"></i>
+						<span>Trip Tracking</span>
+					</a>
+				</li>
+				<li>
+					<a href="maintenance.html">
+						<i class="fas fa-wrench"></i>
+						<span>Maintenance</span>
+					</a>
+				</li>
+				<li>
+					<a href="settings.html">
+						<i class="fas fa-cog"></i>
+						<span>Settings</span>
+					</a>
+				</li>
+					 <li>
+						<a href="index.html">
+							<i class="fas fa-cog"></i>
+							<span>Exit Dashboard</span>
+						</a>
+					</li>
+			</ul>
+		</nav>
+
+		<main class="main-content">
+			<header class="top-nav">
+				<div class="toggle-sidebar"><i class="fas fa-bars"></i></div>
+				<div class="search-bar">
+					<input type="text" placeholder="Search trips...">
+					<i class="fas fa-search"></i>
+				</div>
+				<div class="user-nav">
+					<div class="user-profile">
+						<img src="images/polybadge.png" alt="Admin Profile">
+						<span>Admin</span>
+					</div>
+				</div>
+			</header>
+
+			<div class="dashboard-content">
+				<div class="page-header">
+					<h1>Trip Tracking</h1>
+					<div class="header-controls">
+						<input type="text" placeholder="Search trips or buses" class="input-search">
+					</div>
+				</div>
+
+				<div class="tracking-grid">
+					<div class="map-area">
+						<div class="tracking-controls">
+							<button id="toggle-tracking" class="btn">Pause</button>
+							<select id="show-route"><option>All</option><option>Route A</option><option>Route B</option></select>
+						</div>
+						<div id="tracking-root"></div>
+					</div>
+					<aside class="tracking-side">
+						<h4>Recent Trips</h4>
+						<ul class="recent-trips">
+							<li>BUS-001 — Campus Gate → Engineering Block (10m)</li>
+							<li>BUS-004 — Library → Hostel (22m)</li>
+							<li>BUS-006 — Main Gate → Sports Complex (35m)</li>
+						</ul>
+					</aside>
+				</div>
+
+				<!-- Trip Details Modal -->
+				<div class="modal" id="modal-trip" aria-hidden="true">
+					<div class="modal-panel">
+						<h3>Trip Details</h3>
+						<div id="trip-details"></div>
+						<div class="modal-actions">
+							<button class="btn" id="close-trip">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="scripts/sidebar-toggle.js"></script>
+	<script src="scripts/tracking.js"></script>
+</body>
+</html>
+

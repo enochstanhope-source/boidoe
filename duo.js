@@ -128,6 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // fail
+            // hide overlay and restore state
+            hideLoginOverlay();
+            try { console.clear(); } catch (e) {}
             showModal('Invalid admin credentials');
             if (btn) { btn.disabled = false; btn.textContent = original; }
             clearForm(adminForm);

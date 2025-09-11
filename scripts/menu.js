@@ -211,19 +211,19 @@ function injectMobileMenu() {
             <button class="account-btn"><a href="index.html">Home</a></button>
           </li>
           <li class="nav-dropdown">
-            <a href="#">About Us</a>
+            <a href="#">Admin Dashboard</a>
             <button class="acc-admin"><a href="#">Admin Dashboard</a></button>
             <ul class="dropdown">
-              <li><a href="ourstory.html">Dashboard</a></li>
-              <li><a href="ourteam.html">Manage Buses</a></li>
-              <li><a href="press.html">Manage Drivers</a></li>
-              <li><a href="ourstory.html">Trip & Ride Tracking</a></li>
-              <li><a href="ourteam.html">Maintenance Requests</a></li>
-              <li><a href="press.html">Settings / Profilee</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="manage-buses.html">Manage Buses</a></li>
+              <li><a href="manage-drivers.html">Manage Drivers</a></li>
+              <li><a href="tracking.html">Trip & Ride Tracking</a></li>
+              <li><a href="maintenance.html">Maintenance Requests</a></li>
+              <li><a href="settings.html">Settings / Profilee</a></li>
             </ul>
           </li>
           <li class="nav-dropdown">
-            <a href="#">Programs</a>
+            <a href="#">Drivers Panel</a>
             <button class="account-btn"><a href="#">Driver panel</a></button>
             <ul class="dropdown">
               <li><a href="digital.html">My Bus & Routes</a></li>

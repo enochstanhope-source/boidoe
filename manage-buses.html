@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manage Buses - Admin</title>
+	<link rel="stylesheet" href="styles/dashboard.css">
+	<link rel="stylesheet" href="styles/manage-buses.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+	<div class="dashboard-container">
+		<!-- Sidebar copied from dashboard for consistent navigation -->
+		<nav class="sidebar">
+				<div class="sidebar-header">
+					<img src="images/polybadge.png" alt="FEDPONEK Logo" class="logo">
+					<h2>Bus Management</h2>
+					<button class="sidebar-close" aria-label="Close sidebar">×</button>
+				</div>
+			<ul class="nav-links">
+				<li>
+					<a href="dashboard.html">
+						<i class="fas fa-tachometer-alt"></i>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li class="active">
+					<a href="manage-buses.html">
+						<i class="fas fa-bus"></i>
+						<span>Manage Buses</span>
+					</a>
+				</li>
+				<li>
+					<a href="manage-drivers.html">
+						<i class="fas fa-user-tie"></i>
+						<span>Manage Drivers</span>
+					</a>
+				</li>
+				<li>
+					<a href="tracking.html">
+						<i class="fas fa-route"></i>
+						<span>Trip Tracking</span>
+					</a>
+				</li>
+				<li>
+					<a href="maintenance.html">
+						<i class="fas fa-wrench"></i>
+						<span>Maintenance</span>
+					</a>
+				</li>
+				<li>
+					<a href="settings.html">
+						<i class="fas fa-cog"></i>
+						<span>Settings</span>
+					</a>
+				</li>
+					 <li>
+						<a href="index.html">
+							<i class="fas fa-cog"></i>
+							<span>Exit Dashboard</span>
+						</a>
+					</li>
+			</ul>
+		</nav>
+
+		<main class="main-content">
+			<header class="top-nav">
+				<div class="toggle-sidebar"><i class="fas fa-bars"></i></div>
+				<div class="search-bar">
+					<input type="text" placeholder="Search buses...">
+					<i class="fas fa-search"></i>
+				</div>
+				<div class="user-nav">
+					<div class="user-profile">
+						<img src="images/polybadge.png" alt="Admin Profile">
+						<span>Admin</span>
+					</div>
+				</div>
+			</header>
+
+			<div class="dashboard-content">
+				<div class="page-header">
+					<h1>Manage Buses</h1>
+					<div class="header-controls">
+						<input type="text" placeholder="Search by ID or plate" class="input-search" id="bus-search">
+						<button class="btn" id="add-bus-btn">+ Add Bus</button>
+					</div>
+				</div>
+
+				<div class="cards-row">
+					<div class="mini-card">
+						<h4>Total Buses</h4>
+						<div class="value">24</div>
+					</div>
+					<div class="mini-card">
+						<h4>Active</h4>
+						<div class="value">20</div>
+					</div>
+					<div class="mini-card">
+						<h4>In Maintenance</h4>
+						<div class="value">4</div>
+					</div>
+				</div>
+
+				<section class="list-section">
+					<h3>Buses</h3>
+					<p class="muted">Manage your fleet — edit, remove or assign routes.</p>
+					<div class="controls-row">
+						<select id="filter-route">
+							<option value="">All routes</option>
+							<option>Route A</option>
+							<option>Route B</option>
+							<option>Route C</option>
+						</select>
+						<button class="btn" id="export-buses">Export CSV</button>
+					</div>
+					<div id="manage-buses-root"></div>
+				</section>
+                
+				<!-- Add Bus Modal -->
+				<div class="modal" id="modal-add-bus" aria-hidden="true">
+					<div class="modal-panel">
+						<h3>Add Bus</h3>
+						<label>Plate <input id="new-plate" type="text"></label>
+						<label>Route <input id="new-route" type="text"></label>
+						<label>Status <select id="new-status"><option>In Service</option><option>Maintenance</option><option>Available</option></select></label>
+						<div class="modal-actions">
+							<button class="btn" id="save-new-bus">Save</button>
+							<button class="btn" id="cancel-new-bus">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script src="scripts/manage-buses.js"></script>
+	<script src="scripts/sidebar-toggle.js"></script>
+</body>
+</html>

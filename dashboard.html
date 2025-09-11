@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FEDPONEK Bus Management</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/polybadge.png" alt="FEDPONEK Logo" class="logo">
+                <h2>Bus Management</h2>
+                <button class="sidebar-close" aria-label="Close sidebar">×</button>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="manage-buses.html">
+                        <i class="fas fa-bus"></i>
+                        <span>Manage Buses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="manage-drivers.html">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Manage Drivers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tracking.html">
+                        <i class="fas fa-route"></i>
+                        <span>Trip Tracking</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="maintenance.html">
+                        <i class="fas fa-wrench"></i>
+                        <span>Maintenance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="index.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Exit Dashboard</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation Bar -->
+            <header class="top-nav">
+                <div class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-nav">
+                    <div class="notifications" tabindex="0" aria-label="Notifications" role="button">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="badge" id="notification-badge">3</span>
+                        <span class="tooltip-text">Notifications</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="images/polybadge.png" alt="Admin Profile">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Overview Cards -->
+                <div class="overview-cards">
+                    <div class="card">
+                        <div class="card-icon" style="background: #ff6b6b;">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Total Buses</h3>
+                            <p class="number" data-min="20" data-max="30"style="color: yellow;">24</p>
+                            <p class="status" data-min="15" data-max="25" style="color: rgb(255, 0, 0);">20 Active</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon" style="background: #4ecdc4;">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Drivers</h3>
+                            <p class="number" data-min="15" data-max="25" style="color: yellow;">18</p>
+                            <p class="status" data-min="12" data-max="20" style="color: rgb(230, 24, 24);">15 On Duty</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon" style="background: #45b7d1;">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Active Routes</h3>
+                            <p class="number" data-min="8" data-max="15" style="color: yellow;">12</p>
+                            <p class="status" data-min="5" data-max="12" style="color: rgb(255, 0, 0);">8 In Progress</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon" style="background: #00cc25;">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Maintenance</h3>
+                            <p class="number" data-min="3" data-max="8" style="color: yellow;">5</p>
+                            <p class="status" data-min="2" data-max="6" style="color: rgb(255, 0, 0);">3 Pending</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3>Bus Utilization</h3>
+                        <canvas id="busUtilizationChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Route Performance</h3>
+                        <canvas id="routePerformanceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Bus BUS-001 Started Route</h4>
+                                <p>Campus Gate to Engineering Block</p>
+                                <span class="time">10 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Maintenance Request</h4>
+                                <p>Bus BUS-003 scheduled for maintenance</p>
+                                <span class="time">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Driver Assignment</h4>
+                                <p>John Doe assigned to Route A</p>
+                                <span class="time">2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="scripts/sidebar-toggle.js"></script>
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>

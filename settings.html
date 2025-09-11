@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Settings - Admin</title>
+	<link rel="stylesheet" href="styles/dashboard.css">
+	<link rel="stylesheet" href="styles/settings.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+	<div class="dashboard-container">
+		<nav class="sidebar">
+				<div class="sidebar-header">
+					<img src="images/polybadge.png" alt="FEDPONEK Logo" class="logo">
+					<h2>Bus Management</h2>
+					<button class="sidebar-close" aria-label="Close sidebar">×</button>
+				</div>
+			<ul class="nav-links">
+				<li>
+					<a href="dashboard.html">
+						<i class="fas fa-tachometer-alt"></i>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a href="manage-buses.html">
+						<i class="fas fa-bus"></i>
+						<span>Manage Buses</span>
+					</a>
+				</li>
+				<li>
+					<a href="manage-drivers.html">
+						<i class="fas fa-user-tie"></i>
+						<span>Manage Drivers</span>
+					</a>
+				</li>
+				<li>
+					<a href="tracking.html">
+						<i class="fas fa-route"></i>
+						<span>Trip Tracking</span>
+					</a>
+				</li>
+				<li>
+					<a href="maintenance.html">
+						<i class="fas fa-wrench"></i>
+						<span>Maintenance</span>
+					</a>
+				</li>
+				<li class="active">
+					<a href="settings.html">
+						<i class="fas fa-cog"></i>
+						<span>Settings</span>
+					</a>
+				</li>
+					 <li>
+						<a href="index.html">
+							<i class="fas fa-cog"></i>
+							<span>Exit Dashboard</span>
+						</a>
+					</li>
+			</ul>
+		</nav>
+
+		<main class="main-content">
+			<header class="top-nav">
+				<div class="toggle-sidebar"><i class="fas fa-bars"></i></div>
+				<div class="search-bar">
+					<input type="text" placeholder="Search settings...">
+					<i class="fas fa-search"></i>
+				</div>
+				<div class="user-nav">
+					<div class="user-profile">
+						<img src="images/polybadge.png" alt="Admin Profile">
+						<span>Admin</span>
+					</div>
+				</div>
+			</header>
+
+			<div class="dashboard-content">
+				<div class="page-header">
+					<h1>Settings</h1>
+					<div class="header-controls">
+						<input type="text" placeholder="Search settings" class="input-search">
+					</div>
+				</div>
+
+				<section class="settings-grid">
+					<div class="settings-card">
+						<h4>Application</h4>
+						<div id="settings-root"></div>
+						<div class="muted">Changes saved locally in this demo.</div>
+					</div>
+					<div class="settings-card">
+						<h4>Notifications</h4>
+						<label><input type="checkbox" checked> Email alerts</label>
+						<label><input type="checkbox"> SMS alerts</label>
+					</div>
+				</section>
+			</div>
+		</main>
+	</div>
+
+	<script src="scripts/settings.js"></script>
+	<script src="scripts/sidebar-toggle.js"></script>
+</body>
+</html>
+

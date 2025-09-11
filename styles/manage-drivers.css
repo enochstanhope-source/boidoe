@@ -1,0 +1,17 @@
+/* Manage Drivers page styles */
+.driver-list { display:flex; flex-direction:column; gap:12px }
+.driver-item { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02)); padding:12px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 8px 20px rgba(10,18,25,0.03); }
+.driver-left { display:flex; align-items:center; gap:12px }
+.driver-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#eef3ff,#dfefff); display:flex; align-items:center; justify-content:center; color:var(--primary-color); font-weight:700 }
+.driver-item strong { color:var(--text-color); display:block }
+.driver-item small { color:var(--muted-text); display:block }
+.driver-meta { font-size:0.9rem }
+.driver-actions { display:flex; gap:8px }
+.btn { background: var(--primary-color); color: #fff; padding: 8px 12px; border-radius:8px; border:none; cursor:pointer }
+.btn.small { padding:6px 8px; font-size:0.85rem }
+
+@media (max-width: 800px) {
+	.driver-item { flex-direction: column; align-items: flex-start; gap:8px }
+	.driver-actions { width: 100%; display:flex; justify-content:space-between }
+}
+

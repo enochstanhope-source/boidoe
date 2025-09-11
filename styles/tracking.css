@@ -1,0 +1,20 @@
+/* Tracking page styles */
+.map-placeholder { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)); padding:16px; border-radius:8px }
+.map-placeholder ul { margin-top:8px; color:var(--muted-text) }
+
+/* Leaflet map container */
+#tracking-root { height: 480px; border-radius: 8px; overflow: hidden; }
+.leaflet-container { height: 100%; width: 100%; }
+
+.map-area { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02)); border-radius:8px; padding:8px; display:flex; flex-direction:column; gap:8px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+.tracking-controls { display:flex; gap:8px; align-items:center }
+.tracking-controls .btn { padding:6px 10px }
+.tracking-side { padding: 12px; }
+.recent-trips { list-style: none; padding: 0; margin: 0; }
+.recent-trips li { padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.06); font-size:0.95rem }
+
+@media (max-width: 900px) {
+	#tracking-root { height: 320px }
+	.tracking-grid { grid-template-columns: 1fr; gap:12px }
+}
+
