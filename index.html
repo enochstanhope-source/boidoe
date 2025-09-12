@@ -184,10 +184,25 @@
         btn.textContent = 'Access Dashboard';
         btn.onclick = function() { window.location.href = 'duo.html'; };
 
-        // Firebase user (highest priority)
+        // Firebase user (highest priority), but respect stored role marker when present
         if (typeof firebase !== 'undefined' && firebase.auth) {
           var user = firebase.auth().currentUser;
           if (user) {
+            // If a durable role marker exists, use it to pick the correct dashboard
+            var stored = null;
+            try { stored = localStorage.getItem('userRole'); } catch (e) { stored = null; }
+            if (stored === 'driver') {
+              btn.textContent = 'My Dashboard';
+              btn.onclick = function() { window.location.href = 'driver-bus-routes.html'; };
+              return;
+            }
+            if (stored === 'admin') {
+              btn.textContent = 'My Dashboard';
+              btn.onclick = function() { window.location.href = 'dashboard.html'; };
+              return;
+            }
+
+            // Default for signed-in users without a stored role
             btn.textContent = 'My Dashboard';
             btn.onclick = function() { window.location.href = 'dashboard.html'; };
             return;
@@ -208,7 +223,8 @@
 
         if (storedRole === 'driver') {
           btn.textContent = 'My Dashboard';
-          btn.onclick = function() { window.location.href = 'dashboard.html?mode=driver'; };
+          // When in driver-only mode, take drivers straight to their Bus & Routes page
+          btn.onclick = function() { window.location.href = 'driver-bus-routes.html'; };
           return;
         }
       } catch (err) {

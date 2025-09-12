@@ -227,6 +227,7 @@ function injectMobileMenu() {
             <button class="account-btn"><a href="#">Driver panel</a></button>
             <ul class="dropdown">
               <li><a href="driver-bus-routes.html">My Bus & Routes</a></li>
+              <li><a href="driver-bus-routes.html" id="driverDashboardLink">My Dashboard</a></li>
               <li><a href="driver-trip.html">Start / End Trip</a></li>
               <li><a href="driver-payments.html">Passengers Counts & Payments</a></li>
               <li><a href="driver-report.html">Report Vehicle issue</a></li>
