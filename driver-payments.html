@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Passengers & Payments - Driver</title>
+  <link rel="icon" type="image/jpeg" href="images/favi.jpg" />
+  <link rel="stylesheet" href="styles/driver-payments.css" />
+  <link rel="stylesheet" href="styles/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="scripts/firebase-init.js" defer></script>
+  <script src="scripts/driver-payments.js" defer></script>
+  </head>
+  <body>
+  <div class="dashboard-container">
+     <nav class="sidebar">
+      <div class="sidebar-header">
+        <img src="images/b9.jpg" alt="FEDPONEK Logo" class="logo">
+        <h2>Driver Panel</h2>
+        <button class="sidebar-close" aria-label="Close sidebar">×</button>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="driver-bus-routes.html">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>My Bus & Routes</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-trip.html">
+            <i class="fas fa-bus"></i>
+            <span>Start / End Trip</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-payments.html">
+            <i class="fas fa-user-tie"></i>
+            <span>Passengers Counts & Payments</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-report.html">
+            <i class="fas fa-route"></i>
+            <span>Report Vehicle issue</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-history.html">
+            <i class="fas fa-wrench"></i>
+            <span>Ride History</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-profile.html">
+            <i class="fas fa-cog"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+         <li>
+          <a href="index.html">
+            <i class="fas fa-cog"></i>
+            <span>Exit Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <header class="top-nav">
+        <div class="toggle-sidebar"><i class="fas fa-bars"></i></div>
+      </header>
+      <div class="page">
+        <section class="panel">
+        <h1>Passengers & Payments</h1>
+        <p class="lead">Count passengers and record payments quickly.</p>
+        <div class="payments-actions">
+          <label>Passengers on board: <input id="passengerCount" type="number" min="0" value="0" /></label>
+          <button id="recordPayment" class="btn">Record Payment</button>
+        </div>
+        <ul id="paymentsLog" class="payments-log"></ul>
+      </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="scripts/sidebar-toggle.js"></script>
+  </body>
+</html>

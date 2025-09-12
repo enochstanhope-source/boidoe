@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Bus & Routes - Driver</title>
+  <link rel="icon" type="image/jpeg" href="images/favi.jpg" />
+  <link rel="stylesheet" href="styles/driver-bus-routes.css" />
+  <link rel="stylesheet" href="styles/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="scripts/firebase-init.js" defer></script>
+   
+    <script src="scripts/driver-bus-routes.js" defer></script>
+  </head>
+  <body>
+  <div class="dashboard-container">
+    <!-- Sidebar copied from dashboard.html to match dashboard menu styling -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img src="images/b9.jpg" alt="FEDPONEK Logo" class="logo">
+        <h2>Driver Panel</h2>
+        <button class="sidebar-close" aria-label="Close sidebar">×</button>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="driver-bus-routes.html">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>My Bus & Routes</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-trip.html">
+            <i class="fas fa-bus"></i>
+            <span>Start / End Trip</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-payments.html">
+            <i class="fas fa-user-tie"></i>
+            <span>Passengers Counts & Payments</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-report.html">
+            <i class="fas fa-route"></i>
+            <span>Report Vehicle issue</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-history.html">
+            <i class="fas fa-wrench"></i>
+            <span>Ride History</span>
+          </a>
+        </li>
+        <li>
+          <a href="driver-profile.html">
+            <i class="fas fa-cog"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+         <li>
+          <a href="index.html">
+            <i class="fas fa-cog"></i>
+            <span>Exit Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content (original page) -->
+    <main class="main-content">
+      <header class="top-nav">
+        <div class="toggle-sidebar">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+      <div class="page">
+        <section class="panel">
+          <div class="panel-header">
+            <h1>My Bus & Routes</h1>
+            <p class="lead">Quick access to assigned vehicle, route and stops. Use the controls to filter, sort and open route details.</p>
+          </div>
+
+          <div class="controls">
+            <div class="controls-row">
+              <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <label class="filter">
+                  <span class="sr-only">Filter routes</span>
+                  <input id="routeFilter" placeholder="Search by route or bus (e.g. Route A, Bus 23)" />
+                </label>
+              </div>
+              <div class="actions">
+                <button id="sortBtn" class="btn primary">
+                  <i class="fas fa-sort-alpha-down"></i>
+                  Sort: Name
+                </button>
+                <button id="showMapBtn" class="btn secondary">
+                  <i class="fas fa-map-marked-alt"></i>
+                  Show Map
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-wrapper">
+            <div class="quick-stats">
+              <div class="stat-card">
+                <i class="fas fa-bus-alt"></i>
+                <div class="stat-info">
+                  <h3>Active Bus</h3>
+                  <p id="activeBus">Bus 23</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-route"></i>
+                <div class="stat-info">
+                  <h3>Current Route</h3>
+                  <p id="currentRoute">Route A</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <div class="stat-info">
+                  <h3>Next Departure</h3>
+                  <p id="nextDeparture">10:30 AM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="routes-container">
+              <h2>Available Routes</h2>
+              <ul id="routesList" class="routes-list" aria-live="polite"></ul>
+            </div>
+
+            <div id="mapPlaceholder" class="map-placeholder" hidden>
+              <div class="map-inner">
+                <div class="map-header">
+                  <h3>Route Map</h3>
+                  <button class="btn close-map">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="map-content">
+                  Map placeholder — integrate a map (Leaflet/Google) here.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <hr class="section-sep" />
+
+        <section class="case-study">
+          <h2>Case Study — Fedponek Oweeri</h2>
+          <p class="case-lead">Fedponek Oweeri is a campus driver who manages multiple daily routes across the north and south gates. This case study highlights how the driver uses the vehicle & routes dashboard to start shifts, check stop counts and report issues quickly from a mobile phone.</p>
+          <ul class="case-points">
+            <li><strong>Challenge:</strong> Multiple overlapping routes and unpredictable passenger spikes at peak hours.</li>
+            <li><strong>Solution:</strong> Real-time route cards, quick 'Start Trip' controls and the sign-out-friendly menu allow rapid transitions between shifts.</li>
+            <li><strong>Outcome:</strong> Reduced late departures and faster incident reporting using the dashboard tools.</li>
+          </ul>
+        </section>
+        </section>
+      </div>
+    </main>
+    </div>
+
+    <script src="scripts/sidebar-toggle.js"></script>
+  </body>
+</html>

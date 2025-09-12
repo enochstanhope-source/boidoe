@@ -219,20 +219,19 @@ function injectMobileMenu() {
               <li><a href="manage-drivers.html">Manage Drivers</a></li>
               <li><a href="tracking.html">Trip & Ride Tracking</a></li>
               <li><a href="maintenance.html">Maintenance Requests</a></li>
-              <li><a href="settings.html">Settings / Profilee</a></li>
+              <li><a href="settings.html">Settings / Profile</a></li>
             </ul>
           </li>
-          <li class="nav-dropdown">
+          <li class="nav-dropdown driver-panel">
             <a href="#">Drivers Panel</a>
             <button class="account-btn"><a href="#">Driver panel</a></button>
             <ul class="dropdown">
-              <li><a href="digital.html">My Bus & Routes</a></li>
-              <li><a href="business.html">Start / End Trip</a></li>
-              <li><a href="vocational.html">Passengers Counts & Payments</a></li>
-              <li><a href="soft.html">Report Vehicle issue</a></li>
-               <li><a href="soft.html">Ride History</a></li>
-                <li><a href="soft.html">Profile</a></li>
-
+              <li><a href="driver-bus-routes.html">My Bus & Routes</a></li>
+              <li><a href="driver-trip.html">Start / End Trip</a></li>
+              <li><a href="driver-payments.html">Passengers Counts & Payments</a></li>
+              <li><a href="driver-report.html">Report Vehicle issue</a></li>
+              <li><a href="driver-history.html">Ride History</a></li>
+              <li><a href="driver-profile.html">Profile</a></li>
             </ul>
           </li>
           <li class="nav-dropdown">
@@ -302,11 +301,91 @@ function injectMobileMenu() {
     if (parentLink) {
       parentLink.addEventListener('click', function (e) {
         if (window.innerWidth <= 768) { // Only for mobile view
+          // If this is the driver panel and user is not signed in, redirect to login
+          if (dropdown.classList && dropdown.classList.contains('driver-panel')) {
+            let signedIn = false;
+            try {
+              const storedRole = localStorage.getItem('userRole');
+              if (storedRole) signedIn = true;
+            } catch (err) { /* ignore storage errors */ }
+            if (!signedIn && typeof firebase !== 'undefined' && firebase.auth && firebase.auth().currentUser) {
+              signedIn = true;
+            }
+            if (!signedIn) {
+              e.preventDefault();
+              // Show overlay and allow short time for session to restore
+              showSessionCheckOverlay(2000).then(isSigned => {
+                if (!isSigned) {
+                  // Prompt the user with a friendly message offering sign in
+                  showSignInPromptOverlay().then(choseSignIn => {
+                    if (choseSignIn) {
+                      window.location.href = 'duo.html';
+                    }
+                    // else do nothing (user cancelled)
+                  });
+                } else {
+                  // If session restored, open the dropdown
+                  const dropdownContent = dropdown.querySelector('.dropdown');
+                  if (dropdownContent) {
+                    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+                  }
+                }
+              });
+              return;
+            }
+          }
+
           const dropdownContent = dropdown.querySelector('.dropdown');
           dropdownContent.style.display =
             dropdownContent.style.display === 'block' ? 'none' : 'block';
           e.preventDefault(); // Only prevent default for parent link
         }
+      });
+    }
+    
+    // Attach click guards to dropdown inner links: if this is the driver panel
+    // and the user is not signed in, redirect to duo.html (login) like admin pages.
+    const innerLinks = dropdown.querySelectorAll('.dropdown a');
+    if (innerLinks && innerLinks.length) {
+      innerLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          try {
+            // If this is the driver-panel dropdown, ensure user is authenticated
+            if (dropdown.classList && dropdown.classList.contains('driver-panel')) {
+              let signedIn = false;
+              try {
+                const storedRole = localStorage.getItem('userRole');
+                if (storedRole) signedIn = true;
+              } catch (err) { /* ignore storage errors */ }
+
+              // If firebase is available, consider currentUser as signed in
+              if (!signedIn && typeof firebase !== 'undefined' && firebase.auth && firebase.auth().currentUser) {
+                signedIn = true;
+              }
+
+              if (!signedIn) {
+                e.preventDefault();
+                // Show overlay and wait briefly; if session restores, navigate to the link,
+                // otherwise redirect to sign-in page.
+                showSessionCheckOverlay(2000).then(isSigned => {
+                  if (isSigned) {
+                    // navigate to the intended link
+                    try { window.location.href = link.href; } catch (e) { console.error(e); }
+                  } else {
+                    // show prompt that explains why and let user choose to sign in
+                    showSignInPromptOverlay().then(choseSignIn => {
+                      if (choseSignIn) window.location.href = 'duo.html';
+                    });
+                  }
+                });
+                return;
+              }
+            }
+          } catch (ex) {
+            // on any error, be conservative and allow the click to proceed
+            console.error('Dropdown link guard error', ex);
+          }
+        });
       });
     }
   });
@@ -499,3 +578,115 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* Helper: show a lightweight auth-check overlay and resolve when Firebase
+   restores user or timeout expires. Returns a promise that resolves to true
+   if a user is signed in, false otherwise. */
+function showSessionCheckOverlay(timeoutMs = 2000) {
+  return new Promise((resolve) => {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'menu-auth-overlay';
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
+  overlay.style.background = 'rgba(3,6,10,0.75)';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.zIndex = '20000';
+  overlay.style.padding = 'env(safe-area-inset-top,16px) env(safe-area-inset-right,16px) env(safe-area-inset-bottom,16px) env(safe-area-inset-left,16px)';
+  overlay.innerHTML = '<div style="max-width:420px;width:92%;margin:0 auto;text-align:center;color:#e6eef6;padding:18px;border-radius:10px;background:linear-gradient(180deg,#0b0b0b,#101010);border:1px solid rgba(255,255,255,0.03)"><strong style="font-size:1.05rem">Checking session...</strong><div style="height:8px"></div><small style="color:#9aa6b2">You will be redirected to sign in if not signed.</small></div>';
+    document.body.appendChild(overlay);
+
+    let resolved = false;
+
+    function cleanAndResolve(val) {
+      if (resolved) return;
+      resolved = true;
+      try { overlay.remove(); } catch (e) {}
+      resolve(val);
+    }
+
+    // If firebase isn't available, just wait a short time and resolve based on local markers
+    if (typeof firebase === 'undefined' || !firebase.auth) {
+      setTimeout(() => {
+        let signedIn = false;
+        try { if (localStorage.getItem('userRole')) signedIn = true; } catch (e) {}
+        cleanAndResolve(!!signedIn);
+      }, timeoutMs);
+      return;
+    }
+
+    // If firebase exists, listen for auth state; also set a timeout
+    const unsub = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        if (typeof unsub === 'function') unsub();
+        cleanAndResolve(true);
+      }
+    });
+
+    setTimeout(() => {
+      // After timeout, if firebase.currentUser or local markers present, treat as signed in
+      let signedIn = false;
+      try { if (firebase.auth().currentUser) signedIn = true; } catch (e) {}
+      try { if (localStorage.getItem('userRole')) signedIn = true; } catch (e) {}
+      if (typeof unsub === 'function') unsub();
+      cleanAndResolve(!!signedIn);
+    }, timeoutMs);
+  });
+}
+
+/* Show a nicer prompt when user is not signed in and attempts to access driver features.
+   Returns a promise that resolves to true if user chose to sign in or is signed in, false otherwise.
+*/
+function showSignInPromptOverlay() {
+  return new Promise((resolve) => {
+    // Build overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'sign-in-prompt-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.6)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = '21000';
+    overlay.style.padding = 'env(safe-area-inset-top,16px) env(safe-area-inset-right,16px) env(safe-area-inset-bottom,16px) env(safe-area-inset-left,16px)';
+
+    overlay.innerHTML = `
+      <div style="max-width:420px;width:94%;margin:0 auto;background:linear-gradient(180deg,#0b0b0b,#141414);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);color:#fff;text-align:center;font-family:inherit">
+        <h3 style="margin:0 0 8px">Sign in required</h3>
+        <p style="margin:0 0 14px;color:rgba(255,255,255,0.8)">You need to sign in to access Drivers Panel features. Sign in now to continue.</p>
+        <div style="display:flex;gap:12px;justify-content:center">
+          <button id="sipSignInBtn" style="background:#3f020b;color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer">Sign in</button>
+          <button id="sipCancelBtn" style="background:transparent;border:1px solid rgba(255,255,255,0.08);color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer">Cancel</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const cleanup = (val) => {
+      try { overlay.remove(); } catch (e) {}
+      resolve(val);
+    };
+
+    const signInBtn = document.getElementById('sipSignInBtn');
+    const cancelBtn = document.getElementById('sipCancelBtn');
+
+    if (signInBtn) signInBtn.addEventListener('click', () => cleanup(true));
+    if (cancelBtn) cancelBtn.addEventListener('click', () => cleanup(false));
+
+    // Also allow clicking outside the dialog to cancel
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) cleanup(false);
+    });
+  });
+}
+
